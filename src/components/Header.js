@@ -3,24 +3,39 @@ import styles from '../css/Home.module.css'
 import logo from '../Images/EMS.svg'
 import cartLogo from '../Images/cart.svg'
 import heroImg from '../Images/heroImage.png'
+import { Badge, Dropdown, Nav, Navbar } from 'react-bootstrap';
+import { CartState } from '../context/Context';
 
 function Header() {
+
+    const { 
+        state: { cart },
+    }=  CartState();
+
   return <div className={styles.header}>
 
-      <nav className={styles.nav}>
-          <img src={logo} alt="logo" />
-          <div className={styles.navlink}>
-              <a href="http://">Intro</a>
-              <a href="http://">About</a>
-              <a href="http://">Shop</a>
-          </div>
+      <Navbar className={styles.nav}>
+              <Navbar.Brand>
+                  <img src={logo} alt="logo" />
+              </Navbar.Brand>
+              <navbar className={styles.navlink}>
+                  <a href="http://">Intro</a>
+                  <a href="http://">About</a>
+                  <a href="http://">Shop</a>
+              </navbar>
+              <Nav>
+                  <Dropdown alignRight className={styles.dropdown}>
+                      <Dropdown.Toggle className={styles.cart}>
+                          <img src={cartLogo} alt="cart" className={styles.cartLogo} />
+                          <Badge>{cart.length}</Badge>
+                      </Dropdown.Toggle>
 
-          <div className={styles.cart}>
-              <img src={cartLogo} alt="cart" className={styles.cartLogo} />
-              <h1 className={styles.cartItems}>0</h1>
-          </div>
-          
-      </nav>
+                      <Dropdown.Menu style={{ minWidth: 370 }}>
+                          <span style={{ padding: 10 }}>Cart is empty</span>
+                      </Dropdown.Menu>
+                  </Dropdown>
+              </Nav>
+      </Navbar>
 
       <section className={styles.hero}>
           <div className={styles.top}>
