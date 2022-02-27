@@ -1,35 +1,49 @@
 import React from 'react';
 import { CartState } from '../context/Context'
-import Header from './Header';
 import About from './About'
-import Footer from './Footer'
 import SingleProduct from './SingleProduct';
 import styles from '../css/Home.module.css' 
 import Filter from './Filter';
+import Header from './Header';
 
 function Home() {
 
   const { 
       state: { products }, 
+      productState: { sort, searchQuery },
   } = CartState();
 
-  console.log(products);
+  const transformProducts = () => {
+      let sortedProducts = products;
+
+      if (sort) {
+          sortedProducts = sortedProducts.sort((a, b) => 
+              sort === 'lowToHigh' ? a.price - b.price : b.price - a.price
+          );
+      }
+
+    if (searchQuery) {
+        sortedProducts = sortedProducts.filter((prod) => 
+            prod.name.toLowerCase().includes(searchQuery));
+    }
+
+      return sortedProducts;
+  }
 
   return <div>
-      <Header />
+     <Header />
       <About />
       <main className={styles.gadgets}>
           <h1>our gadgets</h1>
           <Filter />
           <section className={styles.gallery}>
               {
-                   products.map((prod) => {
+                transformProducts().map((prod) => {
                        return <SingleProduct prod={prod} key={prod.id} />
                   })
               }
         </section>
       </main>
-      <Footer />
   </div>;
 }
 

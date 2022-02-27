@@ -15,21 +15,15 @@ const SingleProduct = ({ prod }) => {
             <div className={styles.image}>
                 <img src={prod.img} alt="product" height="120" />
             </div>
-            <div className="hover" id="h1">
-                <p>price</p>
-                <h5>{prod.price}</h5>
-            </div>
             <h1>{prod.name}</h1>
-            {prod.fastDelivery ? (
-                <p>Fast Delivery</p>
-            ) : (
-                <p>4 days delivery</p>
-            )}
-            <p>{prod.delivery}</p>
+            <div className={styles.overlay}>
+                <p><b>price</b></p>
+                <h3 className={styles.prices}>{prod.price}</h3>
+            </div>
 
             {
                 cart.some(p => p.id === prod.id) ? (
-                    <button className={styles.shopLink} onClick={() => {
+                    <button className={styles.shopLink2} onClick={() => {
                         dispatch({
                             type: "REMOVE_FROM_CART",
                             payload: prod

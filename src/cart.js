@@ -51,7 +51,7 @@ export const Products = [
     img: img5,
     id: 'p5',
     name: 'Apple Watch',
-    price: 95000,
+    price:  95000,
     inCart: 0,
     tag: 'applewatch',
     delivery: 'Fast Delivery'

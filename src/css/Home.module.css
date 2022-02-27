@@ -102,6 +102,92 @@ body{
   .about p{
       font-size: 20px;
   }
+
+  /* cart section */
+.dropdown, .dropdown1{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.dropdown1{
+  margin: auto;
+  margin-top: 3em;
+}
+
+.dropdown{
+  position: absolute;
+  width: 50%;
+  left: 20em;
+  top: 1em;
+}
+
+.droptop, .droptop1{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.droptop1{
+  width: 100%;
+}
+
+.droptop{
+  width: 80%;
+}
+
+.cartitem{
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.cartform{
+  width: 80%;
+  margin: auto;
+  margin-top: 2em;
+}
+
+.form{
+  background-color: #FFE9D6;
+  width: 100%;
+  height: 30px;
+}
+
+.total{
+  width: 50%;
+  margin: auto;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.total > h2{
+  margin-top: -7px;
+}
+
+.proceed, .proceed1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  height: 40px;
+}
+
+.proceed{
+  width: 30%;
+}
+
+.proceed1{
+  width: 50%;
+}
+
 /* gadgets section */
   .gadgets{
     display: flex;
@@ -144,18 +230,61 @@ body{
     font-weight: 900;
   }
 
-  .shopLink{
+  .overlay{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    margin-top: -1.5em;
+  }
+
+  .prices{
+    font-weight: 900;
+  }
+
+  .shopLink, .shopLink1, .shopLink2{
     text-align: center;
-    background-color: #FF983D;
-    padding: 10px 30px;
     border-radius: 5px;
-    margin-top: -10px;
     color: black;
     font-size: 15px;
-    text-transform: uppercase;
     font-weight: 700;
     border: none;
     outline: none;
+  }
+
+  .select{
+    background-color: #FF983D;
+    border: none;
+    outline: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+
+  .select:hover {
+    background-color: #FFE9D6;
+    color: black;
+  }
+
+  .shopLink{
+    background-color: #FF983D;
+    padding: 10px 30px;
+    margin-top: -10px;
+    text-transform: uppercase;
+  }
+
+  .shopLink1{
+    background-color: #FFE9D6;
+    text-transform: capitalize;
+    border-radius: 10px;
+    height: 40px;
+  }
+
+  .shopLink2{
+    background-color: #FFE9D6;
+    padding: 10px 30px;
+    margin-top: -10px;
+    text-transform: uppercase;
   }
 
   /* filter section */
@@ -164,11 +293,17 @@ body{
     width: 100%;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+
+  .filterbar{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
   }
 
   /* footer section */
@@ -183,4 +318,107 @@ body{
   
   .footer p{
     color: #fff;
+  }
+
+  /* mobile design */
+  @media screen and (max-width: 870px){
+
+    .dropdown{
+      width: 70%;
+      left: 8em;
+    }
+
+    .dropdown1{
+      width: 100%;
+    }
+
+    .proceed{
+      width: 50%;
+    }
+
+    .overlay{
+      width: 90%;
+    }
+
+    .product{
+      width: 45%;
+      margin-top: 2em;
+    }
+    
+  }
+
+  @media screen and (max-width: 470px){
+
+    .proceed1, .total{
+      width: 100%;
+    }
+
+    .logo, .cart{
+      width: 60%;
+    }
+
+    .cart{
+      height: 50px;
+    }
+
+    .bottom {
+      width: 90%;
+    }
+
+    .cartLogo{
+      width: 100%;
+    }
+
+    .proceed1{
+      flex-direction: column;
+    }
+
+    .proceed1 button{
+      margin-top: 1em;
+    }
+
+    .imgtitle, .imgs{
+      display: none;
+    }
+
+    .itemname, .itemprice{
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .dropdown{
+      width: 90%;
+      left: 1em;
+    }
+
+    .proceed{
+      width: 70%;
+    }
+
+    .top{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .heroImg{
+      width: 100%;
+    }
+
+    .filterbar{
+      width: 100%;
+      margin-bottom: 1em;
+    }
+
+    .product{
+      width: 100%;
+      margin-top: 2em;
+    }
+
+    .footer, .filter{
+      flex-direction: column;
+    }
+    
   }

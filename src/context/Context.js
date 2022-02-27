@@ -2,6 +2,7 @@ import React from 'react';
 import { createContext, useReducer, useContext } from 'react'; 
 import {Products}  from '../cart'
 import { cartReducer } from './Reducers'
+import { productReducer } from './Reducers'
 
 const Cart = createContext();
 
@@ -20,9 +21,15 @@ const Context = ({ children }) => {
     const [state, dispatch] = useReducer(cartReducer, {
         products: Products,
         cart: []
-    })
+    });
 
-  return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
+    const [productState, productDispatch] = useReducer(productReducer, {
+        searchQuery: "",
+    });
+
+  return <Cart.Provider value={{ state, dispatch, productState, productDispatch }}>
+      {children}
+    </Cart.Provider>;
 };
 
 export default Context;
