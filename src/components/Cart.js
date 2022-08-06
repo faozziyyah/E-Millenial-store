@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { CartState } from '../context/Context';
 import styles from '../css/Home.module.css' 
 import { Link } from 'react-router-dom';
+import StripeButton from './StripeButton';
+import Nav from './NavigationBar'
 
 const Cart = () => {
 
@@ -16,9 +18,48 @@ const Cart = () => {
     useEffect(() => {
         setTotal(cart.reduce((acc, curr) => acc + Number(curr.price)*curr.qty, 0));
     }, [cart]);
+
+    //const initialValue = { fullname: "", email: "", phone: "" };
+    //const [formValue, setFormValue] = useState(initialValue);
+    //const [formErrors, setFormErrors] = useState({});
+    //const [isSubmit, setIsSubmit] = useState(false);
     
+    /*const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormValue({...formValue, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormErrors(validate(formValue));
+        setIsSubmit(true);
+    };*/
+
+    /*useEffect(() => {
+        console.log(formErrors);
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log(formValue);
+        }
+    });
+
+    const validate = (values) => {
+        const errors = {};
+        if  (!values.fullname) {
+            errors.fullname = "fullname is required";
+        }
+        if  (!values.email) {
+            errors.email = "email is required";
+        }
+        if  (!values.phone) {
+            errors.phone = "phone number is required";
+        }
+
+        return errors;
+    };*/
 
   return (
+    <div className={styles.cartpage}>
+    <Nav />
     <section className={styles.dropdown1}>
         <span className={styles.droptop1}>
             <h3 className={styles.imgtitle}>Image</h3>
@@ -27,6 +68,7 @@ const Cart = () => {
             <h3 className={styles.qtytitle}>Quantity</h3>
         </span>
         {cart.map((prod) => (
+    
         <>
             <span className={styles.cartitem} key={prod.id}>
                 <img src={prod.img} alt="prodimg" style={{ width: '20%', height: '100px' }} className={styles.imgs}/>
@@ -63,46 +105,67 @@ const Cart = () => {
                 </button>
             </span> 
             <br /> 
-        </>
+    </>
          ))
         }
 
-        <div className={styles.cartform}>
+        {/*<form onSubmit={handleSubmit} className={styles.cartform}>
             <input
                 placeholder="Your Name"
-                name="group1"
+                name="fullname"
                 type="text"
                 className={styles.form}
+                value = {formValue.fullname}
+                onChange={handleChange}
+                required
             /> <br /> <br />
             <input
                 placeholder="Your Email"
-                name="group1"
+                name="email"
                 type="email"
-                className={styles.form}
+                className={styles.email}
+                value = {formValue.email}
+                onChange={handleChange}
+                required
             /> <br /> <br />
             <input 
                 placeholder="Your Phone Number"
-                name="group1"
+                name="phone"
                 type="number"
                 className={styles.form}
+                value = {formValue.phone}
+                onChange={handleChange}
+                required
             />
-        </div>
+
+                
+            
+        </form>*/}
 
         <div className={styles.total}>
             <h1>Total Amount to be Paid</h1>
             <h2>₦ {total} </h2>
         </div>
 
+        <div className={ styles.testwarning}>
+          *Please use the following test credit card for payments*
+          <br />
+          5555555555554444 - Exp: 01/24 - CVV: 123
+        </div>
+
+    
+
         <div className={styles.proceed1}>
             <Link to="/">
                 <button className={styles.shopLink1}>Continue Shopping</button>
             </Link>                      
-                                   
-            <Link to="/">
-                <button className={styles.shopLink}>Checkout</button>
-            </Link>
+
+            {/*<button type="submit" className={styles.shopLink}>Checkout</button>*/}
+            <StripeButton price={total} />
+            
         </div>
     </section>
+    </div>
   )
 }
 

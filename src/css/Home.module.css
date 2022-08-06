@@ -4,12 +4,20 @@ body{
 /* header section */
 .header{
     background-color: #FFE9D6;
+    position: relative;
   }
 
   .nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    width: 100%;
+  }
+
+  .cartpage{
+    display: flex;
+    flex-direction: column;
   }
 
   .navlink{
@@ -64,6 +72,7 @@ body{
       display: flex;
       justify-content: space-around;
       align-items: center;
+      margin-top: 2em;
   }
 
   .heroImg{
@@ -112,8 +121,9 @@ body{
 }
 
 .dropdown1{
+  display: flex;
   margin: auto;
-  margin-top: 3em;
+  margin-top: 6em;
 }
 
 .dropdown{
@@ -152,7 +162,7 @@ body{
   margin-top: 2em;
 }
 
-.form{
+.form, .email{
   background-color: #FFE9D6;
   width: 100%;
   height: 30px;
@@ -177,15 +187,16 @@ body{
   justify-content: center;
   align-items: center;
   align-self: flex-end;
-  height: 40px;
 }
 
 .proceed{
   width: 30%;
+  height: 40px;
 }
 
 .proceed1{
-  width: 50%;
+  justify-content: space-between;
+  width: 80%;
 }
 
 /* gadgets section */
@@ -243,7 +254,7 @@ body{
     font-weight: 900;
   }
 
-  .shopLink, .shopLink1, .shopLink2{
+  .shopLink, .shopLink1, .shopLink2, .checkoutbutton{
     text-align: center;
     border-radius: 5px;
     color: black;
@@ -421,4 +432,12 @@ body{
       flex-direction: column;
     }
     
+  }
+
+  .testwarning {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: red;
   }
