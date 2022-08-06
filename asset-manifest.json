@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/E-Millenial-store/static/css/main.84f68704.css",
+    "main.js": "/E-Millenial-store/static/js/main.bae4e0c6.js",
+    "static/media/heroImage.png": "/E-Millenial-store/static/media/heroImage.b31ace9a523a6daa013e.png",
+    "static/media/product3.png": "/E-Millenial-store/static/media/product3.ef85ac7d20f80b667ed5.png",
+    "static/media/product4.png": "/E-Millenial-store/static/media/product4.dd6cf759e4b34cb63a6b.png",
+    "static/media/product2.png": "/E-Millenial-store/static/media/product2.84c781477af34e185a50.png",
+    "static/media/product6.png": "/E-Millenial-store/static/media/product6.d71f46347d7dfd7680a1.png",
+    "static/media/product5.png": "/E-Millenial-store/static/media/product5.71154487c851a6dfa854.png",
+    "static/media/product1.png": "/E-Millenial-store/static/media/product1.fcb5c0d1b67cec7b1856.png",
+    "static/media/cart.svg": "/E-Millenial-store/static/media/cart.61f95b292d74515c6075210c169d7426.svg",
+    "static/media/EMS.svg": "/E-Millenial-store/static/media/EMS.af64390c6dbd11384661ca080ebc9660.svg",
+    "index.html": "/E-Millenial-store/index.html",
+    "main.84f68704.css.map": "/E-Millenial-store/static/css/main.84f68704.css.map",
+    "main.bae4e0c6.js.map": "/E-Millenial-store/static/js/main.bae4e0c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.84f68704.css",
+    "static/js/main.bae4e0c6.js"
+  ]
+}
