@@ -15,6 +15,7 @@
     "react-scripts": "5.0.0",
     "react-stripe-checkout": "^2.6.3",
     "redux-persist": "^6.0.0",
+    "seerbit-reactjs": "^1.0.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

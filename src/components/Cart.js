@@ -5,19 +5,51 @@ import styles from '../css/Home.module.css'
 import { Link } from 'react-router-dom';
 import StripeButton from './StripeButton';
 import Nav from './NavigationBar'
+import SeerbitCheckout from "seerbit-reactjs"
 
 const Cart = () => {
 
-  const { 
-    state: { cart },
-    dispatch,
-}=  CartState();
+    const close = (close) => {
+      console.log(close);
+    };
+    const callback = (response) => {
+      console.log(response);
+    };
+  
+    const checkProgress = (progress) => {
+      console.log(progress);
+    };
+
+    const { 
+      state: { cart },
+      dispatch,
+    }=  CartState();
 
     const [ total, setTotal ]= useState();
 
     useEffect(() => {
         setTotal(cart.reduce((acc, curr) => acc + Number(curr.price)*curr.qty, 0));
     }, [cart]);
+    
+
+    const options = {
+        public_key: "SBPUBK_DQ24K6T5TI1WOAOYPWWYMGMHKDRVEGPW",
+        //amount: total,
+        amount: 100,
+        tranref: new Date().getTime(),
+        planId: "",
+        customization: {
+          theme: {
+            border_color: "#000000",
+            background_color: "#ECECEC",
+            button_color: "#0084A0",
+          },
+          payment_method: ["card", "account", "transfer", "wallet", "ussd"],
+          display_fee: true, // true
+          display_type: "embed", //inline
+          logo: "logo_url | base64",
+        },
+      };
 
     //const initialValue = { fullname: "", email: "", phone: "" };
     //const [formValue, setFormValue] = useState(initialValue);
@@ -160,9 +192,34 @@ const Cart = () => {
                 <button className={styles.shopLink1}>Continue Shopping</button>
             </Link>                      
 
-            {/*<button type="submit" className={styles.shopLink}>Checkout</button>*/}
-            <StripeButton price={total} />
-            
+            {/*<button type="submit" className={styles.shopLink}>Checkout</button>
+            <StripeButton price={total} /> */}
+
+            <SeerbitCheckout
+              style={{backgroundColor: 'red'}}
+              className="btn seerbit-btn"
+              type="div"
+              tranref={options.tranref}
+              currency={"NGN"}
+              description={"test"}
+              country={"NG"}
+              clientappcode="app1"
+              public_key={options.public_key}
+              callback={callback}
+              close={close}
+              scriptStatus={checkProgress}
+              amount={options.amount}
+              tag={"button"}
+              full_name={"John Doe"}
+              email={"a@b.com"}
+              mobile_no={"00000000000"}
+              tokenize={false}
+              customization={options.customization}
+              version={"2"}
+              title={"Pay with SeerBit"}
+              planId={options.planId}
+            />
+
         </div>
     </section>
     </div>
