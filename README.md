@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: (https://github.com/faozziyyah/E-Millenial-store)
-- Live Site URL: ()
+- Live Site URL: (https://faozziyyah.github.io/E-Millenial-store/)
 
 ## My process
 ### Built with
